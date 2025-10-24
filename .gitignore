@@ -1,0 +1,10 @@
+# Secrets and credentials
+.postgres-password.txt
+*.env
+*.secret
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~
