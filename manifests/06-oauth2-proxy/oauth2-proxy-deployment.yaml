@@ -37,7 +37,7 @@ spec:
         args:
         - --provider=github
         - --email-domain=*
-        - --upstream=http://guacamole-service:8080
+        - --upstream=http://guacamole-service:8080/guacamole
         - --http-address=0.0.0.0:4180
         - --cookie-secure=true
         - --cookie-httponly=true
