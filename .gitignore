@@ -8,3 +8,4 @@
 *.swp
 *.swo
 *~
+manifests/01-secrets-oidc.yaml

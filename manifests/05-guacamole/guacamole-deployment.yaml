@@ -23,6 +23,8 @@ spec:
         ports:
         - containerPort: 8080
         env:
+        - name: EXTENSIONS
+          value: "openid"
         - name: GUACD_HOSTNAME
           value: "guacd-service"
         - name: GUACD_PORT
@@ -46,6 +48,28 @@ spec:
             secretKeyRef:
               name: postgres-credentials
               key: postgres-password
+        - name: OPENID_AUTHORIZATION_ENDPOINT
+          value: "https://accounts.google.com/o/oauth2/v2/auth"
+        - name: OPENID_JWKS_ENDPOINT
+          value: "https://www.googleapis.com/oauth2/v3/certs"
+        - name: OPENID_ISSUER
+          value: "https://accounts.google.com"
+        - name: OPENID_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: guacamole-oidc-secret
+              key: client-id
+        - name: OPENID_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: guacamole-oidc-secret
+              key: client-secret
+        - name: OPENID_REDIRECT_URI
+          value: "https://guacamole.dagnelli.net/guacamole/"
+        - name: OPENID_USERNAME_CLAIM_TYPE
+          value: "email"
+        - name: OPENID_SCOPE
+          value: "openid email profile"
         resources:
           requests:
             memory: "256Mi"
