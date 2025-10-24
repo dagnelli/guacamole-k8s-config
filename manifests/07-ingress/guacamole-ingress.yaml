@@ -10,8 +10,6 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
     nginx.ingress.kubernetes.io/proxy-buffering: "off"
-    nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
-    nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
 spec:
   ingressClassName: nginx
   tls:
@@ -33,6 +31,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: guacamole-service
+            name: oauth2-proxy-service
             port:
-              number: 8080
+              number: 4180
