@@ -14,10 +14,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - guacamole.coder.dagnelli.net
+    - guacamole.dagnelli.net
     secretName: guacamole-tls
   rules:
-  - host: guacamole.coder.dagnelli.net
+  - host: guacamole.dagnelli.net
     http:
       paths:
       - path: /oauth2
